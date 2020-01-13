@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "754081693609",
+    "firebase_url": "https://bukata-d735c.firebaseio.com",
+    "project_id": "bukata-d735c",
+    "storage_bucket": "bukata-d735c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754081693609:android:9cd8e7664a428019fb0eb8",
+        "android_client_info": {
+          "package_name": "com.b2k.bukata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754081693609-ofn7n1ah2osbmhjs65f8sl62vvqk0q5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAePVG4xB_Y_-R8PdWxQvAKpcCfqNFd3zA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754081693609-ofn7n1ah2osbmhjs65f8sl62vvqk0q5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
