@@ -16,10 +16,6 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           actions: <Widget>[
-            Text(
-              'Logout',
-              style: TextStyle(),
-            )
           ],
         ),
         body: Column(
