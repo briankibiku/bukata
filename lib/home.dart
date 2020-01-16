@@ -13,39 +13,49 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-    body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          child:
-              Text('Welcome Home', style: TextStyle(color: Colors.black)),
+      child: Scaffold(
+        appBar: AppBar(
+          actions: <Widget>[
+            Text(
+              'Logout',
+              style: TextStyle(),
+            )
+          ],
         ),
-        Container(
-          child: TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Enter a message',
+        body: Column(
+          key: Key('mainColumn'),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child:
+                  Text('Welcome Home', style: TextStyle(color: Colors.black)),
             ),
-            onChanged: (value) {
-              message = value;
-            },
-          ),
+            Container(
+              margin: EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 40.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Enter a message',
+                ),
+                onChanged: (value) {
+                  message = value;
+                },
+              ),
+            ),
+            Container(
+              child: FlatButton(
+                child: Text('Save'),
+                color: Colors.green,
+                onPressed: () {
+                  _firestore.collection('messages').add({'messages': message});
+                  if (message != null) {
+                    Navigator.pushNamed(context, '/LandingPage');
+                  }
+                },
+              ),
+            ),
+          ],
         ),
-        Container(
-          child: FlatButton(
-            child: Text('Save'),
-            color: Colors.green,
-            onPressed: () {
-              _firestore.collection('messages').add({'messages': message});
-              if(message != null){
-                  Navigator.pop(context);
-              }
-            },
-          ),
-        ),
-      ],
-    ),
-        ),
-      );
+      ),
+    );
   }
 }

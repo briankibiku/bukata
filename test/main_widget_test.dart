@@ -1,30 +1,32 @@
 import 'package:bukata/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 void main() {
   Widget makeTestableWidget({Widget child}) {
     return MaterialApp(
       home: child,
+      // routes: {'/LandingPaeg': (context) => LandingPage(),
+      // '/Home': (context) => HomePage(),},
     );
   }
 
   testWidgets('should confirm MyApp and LandingPage widgets exist', (WidgetTester tester) async {
 
-    final testKey = Key('emailTextField');
-
-    await tester.pumpWidget(makeTestableWidget(child: MyApp()));
     await tester.pumpWidget(makeTestableWidget(child: LandingPage()));
+    await tester.pumpWidget(MyApp());
+    await tester.tap(find.byType(FlatButton));
+    await tester.pump();
+    // await tester.enterText(find.byType(TextField), 'admin@mail.com');
+    await tester.enterText(find.byKey(Key('emailTextField')), 'admin@mail.com');
+    await tester.enterText(find.byKey(Key('passwordTextField')), 'abcdef');
 
-      // var emailTextField = find.byKey(Key('emailTextField'));
-      // expect(emailTextField, findsOneWidget);
-      // await tester.enterText(emailTextField, 'main@mail.com');
-      // expect(find.text('main@mail.com'), findsOneWidget);
-      expect(find.byKey(testKey), findsOneWidget);
-
+    // var emailLabel = find.text('Enter email');
+    // var passwordLabel = find.text('Enter password');
+    var submitButton = find.byType(FlatButton);
+    // expect(emailLabel, findsOneWidget);
+    // expect(passwordLabel, findsOneWidget);
+    expect(submitButton, findsNWidgets(2));
+    
   });
-
-  // testWidgets('should find the container widget', (WidgetTester tester) async{
-  //   final containerWidget = Container();
-  //   await tester.pumpWidget(makeTestableWidget(child: containerWidget));
-  // });
 }

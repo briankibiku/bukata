@@ -1,19 +1,18 @@
 import 'package:bukata/home.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Widget makeTestableWidget ({Widget child}){
+
+  Widget makeTestableWidget({Widget child}) {
     return MaterialApp(
       home: child,
     );
   }
-  testWidgets('should test HomePage widget', (WidgetTester tester) async {
+  testWidgets('should test if home page widget is present', (WidgetTester tester) async{
+    await tester.pumpWidget(makeTestableWidget(child:HomePage()));
 
-    final childWidget = MainAxisAlignment.center;
-    await tester.pumpWidget(makeTestableWidget(child: HomePage()));
-    var column = find.byType(Column);
-
-    expect(column, findsOneWidget);
+    await tester.tap(find.byType(FlatButton));
+    await tester.enterText(find.byType(TextFormField), 'Hello');
   });
 }

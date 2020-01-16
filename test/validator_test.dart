@@ -9,7 +9,7 @@ void main () {
     var passwordError = Validator.validatePassword('');
     var passValid = Validator.validatePassword('12324');
 
-    expect(emailError, 'You have not entered your password');
+    expect(emailError, 'You have not entered your email');
     expect(passwordError, 'You have not entered your password');
     expect(passValid, 'Password does not meet required length');
   });

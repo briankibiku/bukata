@@ -1,8 +1,9 @@
 import 'package:bukata/home.dart';
 import 'package:flutter/material.dart';
 import 'package:bukata/validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:bukata/authentication.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,7 +31,8 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final _auth = FirebaseAuth.instance;
+  // final _auth = FirebaseAuth.instance;
+  Authenticate auth = Authenticate();
 
   bool spinner = false;
   String password;
@@ -102,19 +104,22 @@ class _LandingPageState extends State<LandingPage> {
                   setState(() {
                     spinner = true;
                   });
-                  try{
-                  final result = await _auth.signInWithEmailAndPassword(email: email, password: password);
-                  if(result != null){
+                  if (auth.signIn(email, password) != null) {
                     Navigator.pushNamed(context, '/Home');
                   }
                   setState(() {
                     spinner = false;
                   });
-                  }
-                  catch(e){
-                    Navigator.pushNamed(context, '/LandingPaeg');
-                    print(e);
-                  }
+                  // try{
+                  // final result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                  // if(result != null){
+                  //   Navigator.pushNamed(context, '/Home');
+                  // }                  
+                  // }
+                  // catch(e){
+                  //   Navigator.pushNamed(context, '/LandingPaeg');
+                  //   print(e);
+                  // }
                   
                 },
                 color: Color(0xFF6c0000),
