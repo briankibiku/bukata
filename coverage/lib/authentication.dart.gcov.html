@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>LCOV - lcov.info - lib/validator.dart</title>
+  <title>LCOV - lcov.info - lib/authentication.dart</title>
   <link rel="stylesheet" type="text/css" href="../gcov.css">
 </head>
 
@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - validator.dart<span style="font-size: 80%;"> (source / <a href="validator.dart.func-sort-c.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - authentication.dart<span style="font-size: 80%;"> (source / <a href="authentication.dart.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,8 +31,8 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -60,24 +60,24 @@
       <td>
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>            : class Validator {</a>
-<span class="lineNum">       2 </span><span class="lineCov">          1 :   static String validateEmail(String value) {</span>
-<span class="lineNum">       3 </span><span class="lineCov">          1 :     if (value.isEmpty) {</span>
-<span class="lineNum">       4 </span>            :       return 'You have not entered your email';
-<span class="lineNum">       5 </span>            :     }
-<span class="lineNum">       6 </span>            :     return value;
-<span class="lineNum">       7 </span>            :   }
-<span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span><span class="lineCov">          1 :   static String validatePassword(String value) {</span>
-<span class="lineNum">      10 </span><span class="lineCov">          1 :     if (value.isEmpty) {</span>
-<span class="lineNum">      11 </span>            :       return 'You have not entered your password';
-<span class="lineNum">      12 </span>            :     }
-<span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span><span class="lineCov">          2 :     if (value.length &lt; 7) {</span>
-<span class="lineNum">      15 </span>            :       return 'Password does not meet required length';
-<span class="lineNum">      16 </span>            :     }
-<span class="lineNum">      17 </span>            :     return value;
-<span class="lineNum">      18 </span>            :   }
+<a name="1"><span class="lineNum">       1 </span>            : import 'package:firebase_auth/firebase_auth.dart';</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            : class Authenticate {
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            :   final FirebaseAuth _auth = FirebaseAuth.instance;
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span><span class="lineCov">          1 :   Future &lt;String&gt; signIn(String email, String password)  async {</span>
+<span class="lineNum">       8 </span>            :     try {
+<span class="lineNum">       9 </span><span class="lineCov">          2 :       final result = await _auth.signInWithEmailAndPassword(email: email, password: password);</span>
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            :       if(result != null) {
+<span class="lineNum">      12 </span>            :         return 'true';
+<span class="lineNum">      13 </span>            :       }
+<span class="lineNum">      14 </span>            :     }
+<span class="lineNum">      15 </span>            :     catch (e) {}
+<span class="lineNum">      16 </span>            :     return email;
+<span class="lineNum">      17 </span>            :   }
+<span class="lineNum">      18 </span>            :   
 <span class="lineNum">      19 </span>            : }
 </pre>
       </td>

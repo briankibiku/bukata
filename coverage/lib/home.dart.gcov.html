@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">22</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntryHi">96.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-01-15 15:46:09</td>
+            <td class="headerValue">2020-01-16 12:05:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -64,54 +64,63 @@
 <span class="lineNum">       2 </span>            : import 'package:cloud_firestore/cloud_firestore.dart';
 <span class="lineNum">       3 </span>            : 
 <span class="lineNum">       4 </span>            : class HomePage extends StatefulWidget {
-<span class="lineNum">       5 </span><span class="lineNoCov">          0 :   @override</span>
-<span class="lineNum">       6 </span><span class="lineNoCov">          0 :   _HomePageState createState() =&gt; _HomePageState();</span>
+<span class="lineNum">       5 </span><span class="lineCov">          2 :   @override</span>
+<span class="lineNum">       6 </span><span class="lineCov">          2 :   _HomePageState createState() =&gt; _HomePageState();</span>
 <span class="lineNum">       7 </span>            : }
 <span class="lineNum">       8 </span>            : 
 <span class="lineNum">       9 </span>            : class _HomePageState extends State&lt;HomePage&gt; {
 <span class="lineNum">      10 </span>            :   final _firestore = Firestore.instance;
 <span class="lineNum">      11 </span>            :   bool loader = false;
 <span class="lineNum">      12 </span>            :   String message;
-<span class="lineNum">      13 </span><span class="lineNoCov">          0 :   @override</span>
+<span class="lineNum">      13 </span><span class="lineCov">          2 :   @override</span>
 <span class="lineNum">      14 </span>            :   Widget build(BuildContext context) {
-<span class="lineNum">      15 </span><span class="lineNoCov">          0 :     return SafeArea(</span>
-<span class="lineNum">      16 </span><span class="lineNoCov">          0 :       child: Scaffold(</span>
-<span class="lineNum">      17 </span><span class="lineNoCov">          0 :         body: Column(</span>
-<span class="lineNum">      18 </span><span class="lineNoCov">          0 :           key: Key('mainColumn'),</span>
-<span class="lineNum">      19 </span>            :           mainAxisAlignment: MainAxisAlignment.center,
-<span class="lineNum">      20 </span><span class="lineNoCov">          0 :           children: &lt;Widget&gt;[</span>
-<span class="lineNum">      21 </span><span class="lineNoCov">          0 :             Container(</span>
-<span class="lineNum">      22 </span>            :               child:
-<span class="lineNum">      23 </span><span class="lineNoCov">          0 :                   Text('Welcome Home', style: TextStyle(color: Colors.black)),</span>
-<span class="lineNum">      24 </span>            :             ),
-<span class="lineNum">      25 </span><span class="lineNoCov">          0 :             Container(</span>
-<span class="lineNum">      26 </span><span class="lineNoCov">          0 :               child: TextFormField(</span>
-<span class="lineNum">      27 </span><span class="lineNoCov">          0 :                 decoration: InputDecoration(</span>
-<span class="lineNum">      28 </span>            :                   labelText: 'Enter a message',
-<span class="lineNum">      29 </span>            :                 ),
-<span class="lineNum">      30 </span><span class="lineNoCov">          0 :                 onChanged: (value) {</span>
-<span class="lineNum">      31 </span><span class="lineNoCov">          0 :                   message = value;</span>
-<span class="lineNum">      32 </span>            :                 },
-<span class="lineNum">      33 </span>            :               ),
-<span class="lineNum">      34 </span>            :             ),
-<span class="lineNum">      35 </span><span class="lineNoCov">          0 :             Container(</span>
-<span class="lineNum">      36 </span><span class="lineNoCov">          0 :               child: FlatButton(</span>
-<span class="lineNum">      37 </span><span class="lineNoCov">          0 :                 child: Text('Save'),</span>
-<span class="lineNum">      38 </span>            :                 color: Colors.green,
-<span class="lineNum">      39 </span><span class="lineNoCov">          0 :                 onPressed: () {</span>
-<span class="lineNum">      40 </span><span class="lineNoCov">          0 :                   _firestore.collection('messages').add({'messages': message});</span>
-<span class="lineNum">      41 </span><span class="lineNoCov">          0 :                   if (message != null) {</span>
-<span class="lineNum">      42 </span><span class="lineNoCov">          0 :                     Navigator.pop(context);</span>
-<span class="lineNum">      43 </span>            :                   }
-<span class="lineNum">      44 </span>            :                 },
-<span class="lineNum">      45 </span>            :               ),
-<span class="lineNum">      46 </span>            :             ),
-<span class="lineNum">      47 </span>            :           ],
-<span class="lineNum">      48 </span>            :         ),
-<span class="lineNum">      49 </span>            :       ),
-<span class="lineNum">      50 </span>            :     );
-<span class="lineNum">      51 </span>            :   }
-<span class="lineNum">      52 </span>            : }
+<span class="lineNum">      15 </span><span class="lineCov">          2 :     return SafeArea(</span>
+<span class="lineNum">      16 </span><span class="lineCov">          2 :       child: Scaffold(</span>
+<span class="lineNum">      17 </span><span class="lineCov">          2 :         appBar: AppBar(</span>
+<span class="lineNum">      18 </span><span class="lineCov">          2 :           actions: &lt;Widget&gt;[</span>
+<span class="lineNum">      19 </span><span class="lineCov">          2 :             Text(</span>
+<span class="lineNum">      20 </span>            :               'Logout',
+<span class="lineNum">      21 </span><span class="lineCov">          2 :               style: TextStyle(),</span>
+<span class="lineNum">      22 </span>            :             )
+<span class="lineNum">      23 </span>            :           ],
+<span class="lineNum">      24 </span>            :         ),
+<span class="lineNum">      25 </span><span class="lineCov">          2 :         body: Column(</span>
+<span class="lineNum">      26 </span><span class="lineCov">          2 :           key: Key('mainColumn'),</span>
+<span class="lineNum">      27 </span>            :           mainAxisAlignment: MainAxisAlignment.center,
+<span class="lineNum">      28 </span><span class="lineCov">          2 :           children: &lt;Widget&gt;[</span>
+<span class="lineNum">      29 </span><span class="lineCov">          2 :             Container(</span>
+<span class="lineNum">      30 </span>            :               child:
+<span class="lineNum">      31 </span><span class="lineCov">          4 :                   Text('Welcome Home', style: TextStyle(color: Colors.black)),</span>
+<span class="lineNum">      32 </span>            :             ),
+<span class="lineNum">      33 </span><span class="lineCov">          2 :             Container(</span>
+<span class="lineNum">      34 </span><span class="lineCov">          2 :               margin: EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 40.0),</span>
+<span class="lineNum">      35 </span><span class="lineCov">          2 :               child: TextFormField(</span>
+<span class="lineNum">      36 </span><span class="lineCov">          2 :                 decoration: InputDecoration(</span>
+<span class="lineNum">      37 </span>            :                   labelText: 'Enter a message',
+<span class="lineNum">      38 </span>            :                 ),
+<span class="lineNum">      39 </span><span class="lineCov">          1 :                 onChanged: (value) {</span>
+<span class="lineNum">      40 </span><span class="lineCov">          1 :                   message = value;</span>
+<span class="lineNum">      41 </span>            :                 },
+<span class="lineNum">      42 </span>            :               ),
+<span class="lineNum">      43 </span>            :             ),
+<span class="lineNum">      44 </span><span class="lineCov">          2 :             Container(</span>
+<span class="lineNum">      45 </span><span class="lineCov">          2 :               child: FlatButton(</span>
+<span class="lineNum">      46 </span><span class="lineCov">          2 :                 child: Text('Save'),</span>
+<span class="lineNum">      47 </span>            :                 color: Colors.green,
+<span class="lineNum">      48 </span><span class="lineCov">          1 :                 onPressed: () {</span>
+<span class="lineNum">      49 </span><span class="lineCov">          5 :                   _firestore.collection('messages').add({'messages': message});</span>
+<span class="lineNum">      50 </span><span class="lineCov">          1 :                   if (message != null) {</span>
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 :                     Navigator.pushNamed(context, '/LandingPage');</span>
+<span class="lineNum">      52 </span>            :                   }
+<span class="lineNum">      53 </span>            :                 },
+<span class="lineNum">      54 </span>            :               ),
+<span class="lineNum">      55 </span>            :             ),
+<span class="lineNum">      56 </span>            :           ],
+<span class="lineNum">      57 </span>            :         ),
+<span class="lineNum">      58 </span>            :       ),
+<span class="lineNum">      59 </span>            :     );
+<span class="lineNum">      60 </span>            :   }
+<span class="lineNum">      61 </span>            : }
 </pre>
       </td>
     </tr>
